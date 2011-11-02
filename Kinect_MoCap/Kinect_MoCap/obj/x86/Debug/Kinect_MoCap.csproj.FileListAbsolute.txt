@@ -1,0 +1,15 @@
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\bin\Debug\Kinect_MoCap.exe
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\bin\Debug\Kinect_MoCap.pdb
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\obj\x86\Debug\MainWindow.baml
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\obj\x86\Debug\App.g.cs
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\obj\x86\Debug\Kinect_MoCap_MarkupCompile.cache
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\obj\x86\Debug\Kinect_MoCap.g.resources
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\obj\x86\Debug\Kinect_MoCap.Properties.Resources.resources
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\obj\x86\Debug\Kinect_MoCap.exe
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\obj\x86\Debug\Kinect_MoCap.pdb
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\obj\x86\Debug\MoonDust.baml
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\obj\x86\Debug\Kinect_MoCap_MarkupCompile.lref
