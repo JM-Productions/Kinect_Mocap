@@ -1,0 +1,13 @@
+﻿<Window x:Class="Kinect_MoCap.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid>
+        <Image Name="videoImage"></Image>
+        <Canvas Background="Transparent">
+            <Ellipse Fill="Red" Height="20" Width="20" Name="leftHand" Stroke="White" />
+            <Ellipse Fill="Red" Height="20" Width="20" Name="rightHand" Stroke="White" />
+            <Ellipse Fill="Red" Height="20" Width="20" Name="head" Stroke="White" />
+        </Canvas>
+    </Grid>
+</Window>
