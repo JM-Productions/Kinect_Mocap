@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Research.Kinect.Nui;
+using Microsoft.Samples.Kinect.WpfViewers;
 
 namespace Kinect_MoCap
 {
@@ -35,6 +36,24 @@ namespace Kinect_MoCap
 
             runtime.SkeletonFrameReady += new EventHandler<SkeletonFrameReadyEventArgs>(runtime_SkeletonFrameReady);
         }
+
+        // Keep track of the frame rate using the total frame, last frames, and time
+        int totalFrames = 0;
+        int lastFrames = 0;
+        DateTime lastTime = DateTime.MaxValue;
+
+        // Depth data stored as a byte array.  Color Indexes are used
+        const int RED_IDX = 2;
+        const int GREEN_IDX = 1;
+        const int BLUE_IDX = 0;
+        byte[] depthFrame32 = new byte[320 * 240 * 4];
+
+        // Dictionary to store corresponding colors for the joints
+        Dictionary<JointID, Brush> jointColors =
+            new Dictionary<JointID, Brush>()
+            {
+                // FILL IN WITH ALL JOINTS AND COLORS
+            };
 
         void runtime_SkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs e)
         {

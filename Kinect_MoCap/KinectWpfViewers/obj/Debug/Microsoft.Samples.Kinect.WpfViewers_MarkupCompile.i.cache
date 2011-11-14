@@ -1,0 +1,20 @@
+﻿Microsoft.Samples.Kinect.WpfViewers
+
+
+library
+C#
+.cs
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\KinectWpfViewers\obj\Debug\
+Microsoft.Samples.Kinect.WpfViewers
+none
+false
+DEBUG;TRACE
+
+3173858053
+
+82071478500
+13673347688
+KinectDepthViewer.xaml;KinectColorViewer.xaml;KinectDiagnosticViewer.xaml;
+
+True
+
