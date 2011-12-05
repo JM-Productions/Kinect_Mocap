@@ -53,20 +53,29 @@ namespace Kinect_MoCap
             new Dictionary<JointID, Brush>()
             {
                 // FILL IN WITH ALL JOINTS AND COLORS
+                {JointID.HipCenter, new SolidColorBrush(Color.FromRgb(169, 176, 155))},
+                {JointID.Spine, new SolidColorBrush(Color.FromRgb(169, 176, 155))},
+                {JointID.ShoulderCenter, new SolidColorBrush(Color.FromRgb(168, 230, 29))},
+                {JointID.Head, new SolidColorBrush(Color.FromRgb(200, 0, 0))},
+                {JointID.ShoulderLeft, new SolidColorBrush(Color.FromRgb(79, 84, 33))},
+                {JointID.ElbowLeft, new SolidColorBrush(Color.FromRgb(84, 33, 42))},
+                {JointID.WristLeft, new SolidColorBrush(Color.FromRgb(255, 126, 0))},
+                {JointID.HandLeft, new SolidColorBrush(Color.FromRgb(215, 86, 0))},
+                {JointID.ShoulderRight, new SolidColorBrush(Color.FromRgb(33, 79, 84))},
+                {JointID.ElbowRight, new SolidColorBrush(Color.FromRgb(33, 33, 84))},
+                {JointID.WristRight, new SolidColorBrush(Color.FromRgb(77, 109, 243))},
+                {JointID.HandRight, new SolidColorBrush(Color.FromRgb(37, 69, 243))},
+                {JointID.HipLeft, new SolidColorBrush(Color.FromRgb(77, 109, 243))},
+                {JointID.KneeLeft, new SolidColorBrush(Color.FromRgb(69, 33, 84))},
+                {JointID.AnkleLeft, new SolidColorBrush(Color.FromRgb(229, 170, 122))},
+                {JointID.FootLeft, new SolidColorBrush(Color.FromRgb(255, 126, 0))},
+                {JointID.HipRight, new SolidColorBrush(Color.FromRgb(181, 165, 213))},
+                {JointID.KneeRight, new SolidColorBrush(Color.FromRgb(71, 222, 76))},
+                {JointID.AnkleRight, new SolidColorBrush(Color.FromRgb(245, 228, 156))},
+                {JointID.FootRight, new SolidColorBrush(Color.FromRgb(77, 109, 243))},
             };
 
-        void runtime_SkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs e)
-        {
-            SkeletonFrame skeletonSet = e.SkeletonFrame;
-
-            SkeletonData data = (from s in skeletonSet.Skeletons
-                                 where s.TrackingState == SkeletonTrackingState.Tracked
-                                 select s).FirstOrDefault();
-
-            SetEllipsePosition(head, data.Joints[JointID.Head]);
-            SetEllipsePosition(leftHand, data.Joints[JointID.HandLeft]);
-            SetEllipsePosition(rightHand, data.Joints[JointID.HandRight]);
-        }
+        
 
 
         //This method is used to position the ellipses on the canvas
@@ -112,11 +121,38 @@ namespace Kinect_MoCap
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            //Since only a color video stream is needed, RuntimeOptions.UseColor is used.
-            runtime.Initialize(Microsoft.Research.Kinect.Nui.RuntimeOptions.UseColor | RuntimeOptions.UseSkeletalTracking);
 
-            //You can adjust the resolution here.
-            runtime.VideoStream.Open(ImageStreamType.Video, 2, ImageResolution.Resolution640x480, ImageType.Color);
+            try
+            {
+                //Since only a color video stream is needed, RuntimeOptions.UseColor is used.
+                runtime.Initialize(RuntimeOptions.UseDepthAndPlayerIndex | RuntimeOptions.UseColor | RuntimeOptions.UseSkeletalTracking);
+            }
+            catch(InvalidOperationException)
+            {
+                // Display Error
+                return;
+
+            }
+
+            try
+            {
+                //You can adjust the resolution here.
+                runtime.VideoStream.Open(ImageStreamType.Video, 2, ImageResolution.Resolution640x480, ImageType.Color);
+                runtime.VideoStream.Open(ImageStreamType.Depth, 2, ImageResolution.Resolution320x240, ImageType.DepthAndPlayerIndex);
+            }
+            catch (InvalidOperationException)
+            {
+                // Diplay error
+                return;
+            }
+            lastTime = DateTime.Now;
+
+            runtime.DepthFrameReady += new EventHandler<ImageFrameReadyEventArgs>(runtime_DepthFrameReady);
+        }
+
+        void runtime_DepthFrameReady(object sender, ImageFrameReadyEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         void runtime_VideoFrameReady(object sender, Microsoft.Research.Kinect.Nui.ImageFrameReadyEventArgs e)
@@ -126,6 +162,19 @@ namespace Kinect_MoCap
             BitmapSource source = BitmapSource.Create(image.Width, image.Height, 96, 96,
                 PixelFormats.Bgr32, null, image.Bits, image.Width * image.BytesPerPixel);
             videoImage.Source = source;
+        }
+
+        void runtime_SkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs e)
+        {
+            SkeletonFrame skeletonSet = e.SkeletonFrame;
+
+            SkeletonData data = (from s in skeletonSet.Skeletons
+                                 where s.TrackingState == SkeletonTrackingState.Tracked
+                                 select s).FirstOrDefault();
+
+            SetEllipsePosition(head, data.Joints[JointID.Head]);
+            SetEllipsePosition(leftHand, data.Joints[JointID.HandLeft]);
+            SetEllipsePosition(rightHand, data.Joints[JointID.HandRight]);
         }
     }
 }
