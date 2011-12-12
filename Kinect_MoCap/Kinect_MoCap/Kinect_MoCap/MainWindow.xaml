@@ -1,13 +1,9 @@
 ﻿<Window x:Class="Kinect_MoCap.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="600" Width="800">
-    <Grid>
-        <Image Name="videoImage"></Image>
-        <Canvas Background="Transparent">
-            <Ellipse Fill="Red" Height="20" Width="20" Name="leftHand" Stroke="White" />
-            <Ellipse Fill="Red" Height="20" Width="20" Name="rightHand" Stroke="White" />
-            <Ellipse Fill="Red" Height="20" Width="20" Name="head" Stroke="White" />
-        </Canvas>
-    </Grid>
+        Title="MainWindow" Height="600" Width="800" xmlns:my="clr-namespace:Microsoft.Samples.Kinect.WpfViewers;assembly=Microsoft.Samples.Kinect.WpfViewers">
+    <StackPanel Height="560" Name="stackPanel1" Width="772" Orientation="Vertical">
+        <StackPanel Height="300" Name="stackPanel2" Width="766" />
+        <StackPanel Height="250" Name="stackPanel3" Width="772" />
+    </StackPanel>
 </Window>
