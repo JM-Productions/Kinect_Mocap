@@ -16,3 +16,12 @@ C:\Users\Munk\Documents\School Fall 2011\CS 5630 - Scientific Visualization\Fina
 C:\Users\Munk\Documents\School Fall 2011\CS 5630 - Scientific Visualization\Final Project\Kinect_PointCloud\Kinect_PointCloud\C4F\Coding4Fun.Kinect.Wpf\obj\Debug\Coding4Fun.Kinect.Wpf.g.resources
 C:\Users\Munk\Documents\School Fall 2011\CS 5630 - Scientific Visualization\Final Project\Kinect_PointCloud\Kinect_PointCloud\C4F\Coding4Fun.Kinect.Wpf\obj\Debug\Coding4Fun.Kinect.Wpf.dll
 C:\Users\Munk\Documents\School Fall 2011\CS 5630 - Scientific Visualization\Final Project\Kinect_PointCloud\Kinect_PointCloud\C4F\Coding4Fun.Kinect.Wpf\obj\Debug\Coding4Fun.Kinect.Wpf.pdb
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\C4F\bin\Debug\Coding4Fun.Kinect.Wpf.dll
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\C4F\bin\Debug\Coding4Fun.Kinect.Wpf.pdb
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\C4F\Coding4Fun.Kinect.Wpf\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\C4F\Coding4Fun.Kinect.Wpf\obj\Debug\Controls\HoverButton.baml
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\C4F\Coding4Fun.Kinect.Wpf\obj\Debug\Controls\HoverButton.g.cs
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\C4F\Coding4Fun.Kinect.Wpf\obj\Debug\Coding4Fun.Kinect.Wpf_MarkupCompile.cache
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\C4F\Coding4Fun.Kinect.Wpf\obj\Debug\Coding4Fun.Kinect.Wpf.g.resources
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\C4F\Coding4Fun.Kinect.Wpf\obj\Debug\Coding4Fun.Kinect.Wpf.dll
+C:\Users\Munk\Documents\Visual Studio 2010\Projects\Kinect_MoCap\Kinect_Mocap\Kinect_MoCap\Kinect_MoCap\C4F\Coding4Fun.Kinect.Wpf\obj\Debug\Coding4Fun.Kinect.Wpf.pdb

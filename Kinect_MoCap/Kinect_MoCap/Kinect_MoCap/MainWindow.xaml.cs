@@ -40,7 +40,7 @@ namespace Kinect_MoCap
 
         // Keep track of the frame rate using the total frame, last frames, and time
         int totalFrames = 0;
-        int lastFrames = 0;
+        int lastFrame = 0;
         DateTime lastTime = DateTime.MaxValue;
 
         // Depth data stored as a byte array.  Color Indexes are used
@@ -145,7 +145,7 @@ namespace Kinect_MoCap
             catch (InvalidOperationException)
             {
                 // Display Error
-                
+                System.Windows.MessageBox.Show("Cannot Initialize Kinect.  Please Make Sure Kinect is Kinected");
                 return;
             }
         }
@@ -158,6 +158,17 @@ namespace Kinect_MoCap
         void runtime_VideoFrameReady(object sender, Microsoft.Research.Kinect.Nui.ImageFrameReadyEventArgs e)
         {
             videoImage.Source = e.ImageFrame.ToBitmapSource();
+
+            totalFrames++;
+            // Calculate the frame rate
+            DateTime currentTime = DateTime.Now;
+            if (currentTime.Subtract(lastTime) > TimeSpan.FromSeconds(1))
+            {
+                int fDiff = totalFrames - lastFrame;
+                lastFrame = totalFrames;
+                lastTime = currentTime;
+                frameRate.Text = fDiff.ToString() + " FPS";
+            }
         }
 
         void runtime_SkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs e)
@@ -173,8 +184,38 @@ namespace Kinect_MoCap
             brushes[5] = new SolidColorBrush(Color.FromRgb(128, 128, 255));
 
             skeleton.Children.Clear();
-           
 
+            foreach (SkeletonData data in skeletonFrame.Skeletons)
+            {
+                if (SkeletonTrackingState.Tracked == data.TrackingState)
+                {
+                    // Draw Bones
+                    Brush brush = brushes[iSkeleton % brushes.Length];
+                    skeleton.Children.Add(getBoneSegment(data.Joints, brush, JointID.HipCenter, JointID.Spine, 
+                                                            JointID.ShoulderCenter, JointID.Head));
+                    skeleton.Children.Add(getBoneSegment(data.Joints, brush, JointID.ShoulderCenter, JointID.ShoulderLeft, 
+                                                            JointID.ElbowLeft, JointID.WristLeft, JointID.HandLeft));
+                    skeleton.Children.Add(getBoneSegment(data.Joints, brush, JointID.ShoulderCenter, JointID.ShoulderRight, 
+                                                            JointID.ElbowRight, JointID.WristRight, JointID.HandRight));
+                    skeleton.Children.Add(getBoneSegment(data.Joints, brush, JointID.HipCenter, JointID.HipLeft, 
+                                                            JointID.KneeLeft, JointID.AnkleLeft, JointID.FootLeft));
+                    skeleton.Children.Add(getBoneSegment(data.Joints, brush, JointID.HipCenter, JointID.HipRight, 
+                                                            JointID.KneeRight, JointID.AnkleRight, JointID.FootRight));
+
+                    // Draw Joints
+                    foreach (Joint joint in data.Joints)
+                    {
+                        Point jointPos = getPointPosition(joint);
+                        Line jointLine = new Line();
+                        jointLine.X1 = jointPos.X - 3;
+                        jointLine.X2 = jointLine.X1 + 6;
+                        jointLine.Y1 = jointLine.Y2 = jointPos.Y;
+                        jointLine.Stroke = jointColors[joint.ID];
+                        jointLine.StrokeThickness = 6;
+                        skeleton.Children.Add(jointLine);
+                    }
+                }
+            }
         }
 
         private Point getPointPosition(Joint joint)
