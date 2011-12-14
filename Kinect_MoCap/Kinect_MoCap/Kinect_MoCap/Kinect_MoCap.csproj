@@ -101,6 +101,10 @@
       <Project>{4DE23893-27E7-423F-9BB6-BA21DAC2C45E}</Project>
       <Name>Microsoft.Samples.Kinect.WpfViewers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\C4F\Coding4Fun.Kinect.Wpf\Coding4Fun.Kinect.Wpf.csproj">
+      <Project>{93AF58CB-B493-402C-96DF-12BCB22E9AA5}</Project>
+      <Name>Coding4Fun.Kinect.Wpf</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

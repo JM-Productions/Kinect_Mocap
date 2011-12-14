@@ -3,7 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="600" Width="800" xmlns:my="clr-namespace:Microsoft.Samples.Kinect.WpfViewers;assembly=Microsoft.Samples.Kinect.WpfViewers">
     <StackPanel Height="560" Name="stackPanel1" Width="772" Orientation="Vertical">
-        <StackPanel Height="300" Name="stackPanel2" Width="766" />
+        <StackPanel Height="355" Name="stackPanel2" Width="766" Orientation="Horizontal">
+            <StackPanel Height="288" Name="stackPanel4" Width="395">
+                <TextBox Height="23" Name="textBox1" Width="120" Text="Video Data" />
+                <Image Height="251" Name="videoImage" Stretch="Fill" Width="349" />
+            </StackPanel>
+            <StackPanel Height="286" Name="stackPanel5" Width="375">
+                <TextBox Height="23" Name="textBox2" Width="120" Text="Skeleton Data" />
+                <Canvas Height="250" Name="skeleton" Width="325" />
+            </StackPanel>
+        </StackPanel>
         <StackPanel Height="250" Name="stackPanel3" Width="772" />
     </StackPanel>
 </Window>

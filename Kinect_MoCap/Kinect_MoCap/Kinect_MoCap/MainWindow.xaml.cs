@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Research.Kinect.Nui;
 using Microsoft.Samples.Kinect.WpfViewers;
+using Coding4Fun.Kinect.Wpf;
 
 namespace Kinect_MoCap
 {
@@ -130,6 +131,7 @@ namespace Kinect_MoCap
             catch(InvalidOperationException)
             {
                 // Display Error
+                System.Windows.MessageBox.Show("Cannot Initialize Kinect.  Please Make Sure Kinect is Kinected");
                 return;
 
             }
@@ -138,16 +140,14 @@ namespace Kinect_MoCap
             {
                 //You can adjust the resolution here.
                 runtime.VideoStream.Open(ImageStreamType.Video, 2, ImageResolution.Resolution640x480, ImageType.Color);
-                runtime.VideoStream.Open(ImageStreamType.Depth, 2, ImageResolution.Resolution320x240, ImageType.DepthAndPlayerIndex);
+                runtime.DepthStream.Open(ImageStreamType.Depth, 2, ImageResolution.Resolution320x240, ImageType.DepthAndPlayerIndex);
             }
             catch (InvalidOperationException)
             {
-                // Diplay error
+                // Display Error
+                
                 return;
             }
-            lastTime = DateTime.Now;
-
-            runtime.DepthFrameReady += new EventHandler<ImageFrameReadyEventArgs>(runtime_DepthFrameReady);
         }
 
         void runtime_DepthFrameReady(object sender, ImageFrameReadyEventArgs e)
@@ -157,24 +157,53 @@ namespace Kinect_MoCap
 
         void runtime_VideoFrameReady(object sender, Microsoft.Research.Kinect.Nui.ImageFrameReadyEventArgs e)
         {
-            PlanarImage image = e.ImageFrame.Image;
-
-            BitmapSource source = BitmapSource.Create(image.Width, image.Height, 96, 96,
-                PixelFormats.Bgr32, null, image.Bits, image.Width * image.BytesPerPixel);
-            videoImage.Source = source;
+            videoImage.Source = e.ImageFrame.ToBitmapSource();
         }
 
         void runtime_SkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs e)
         {
-            SkeletonFrame skeletonSet = e.SkeletonFrame;
+            SkeletonFrame skeletonFrame = e.SkeletonFrame;
+            int iSkeleton = 0;
+            Brush[] brushes = new Brush[6];
+            brushes[0] = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+            brushes[1] = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+            brushes[2] = new SolidColorBrush(Color.FromRgb(64, 255, 255));
+            brushes[3] = new SolidColorBrush(Color.FromRgb(255, 255, 64));
+            brushes[4] = new SolidColorBrush(Color.FromRgb(255, 64, 255));
+            brushes[5] = new SolidColorBrush(Color.FromRgb(128, 128, 255));
 
-            SkeletonData data = (from s in skeletonSet.Skeletons
-                                 where s.TrackingState == SkeletonTrackingState.Tracked
-                                 select s).FirstOrDefault();
+            skeleton.Children.Clear();
+           
 
-            SetEllipsePosition(head, data.Joints[JointID.Head]);
-            SetEllipsePosition(leftHand, data.Joints[JointID.HandLeft]);
-            SetEllipsePosition(rightHand, data.Joints[JointID.HandRight]);
+        }
+
+        private Point getPointPosition(Joint joint)
+        {
+            float depthX, depthY;
+            runtime.SkeletonEngine.SkeletonToDepthImage(joint.Position, out depthX, out depthY);
+            depthX = depthX * 320;
+            depthY = depthY * 240;
+            int colorX, colorY;
+            ImageViewArea iv = new ImageViewArea();
+            runtime.NuiCamera.GetColorPixelCoordinatesFromDepthPixel(ImageResolution.Resolution640x480, iv, (int)depthX, (int)depthY, (short)0, out colorX, out colorY);
+
+            // map back to skeleton.Width & skeleton.Height
+            return new Point((int)(skeleton.Width * colorX / 640.0), (int)(skeleton.Height * colorY / 480));
+        }
+
+        Polyline getBoneSegment(Microsoft.Research.Kinect.Nui.JointsCollection joints, Brush brush, params JointID[] ids)
+        {
+            PointCollection points = new PointCollection(ids.Length);
+            for (int i = 0; i < ids.Length; ++i)
+            {
+                points.Add(getPointPosition(joints[ids[i]]));
+            }
+
+            Polyline polyline = new Polyline();
+            polyline.Points = points;
+            polyline.Stroke = brush;
+            polyline.StrokeThickness = 5;
+            return polyline;
         }
     }
 }

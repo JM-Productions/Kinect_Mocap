@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kinect_MoCap", "Kinect_MoCa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Samples.Kinect.WpfViewers", "..\KinectWpfViewers\Microsoft.Samples.Kinect.WpfViewers.csproj", "{4DE23893-27E7-423F-9BB6-BA21DAC2C45E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "C4F", "C4F", "{4BA04760-851A-4D08-96E9-D713AE5B0C1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coding4Fun.Kinect.Wpf", "C4F\Coding4Fun.Kinect.Wpf\Coding4Fun.Kinect.Wpf.csproj", "{93AF58CB-B493-402C-96DF-12BCB22E9AA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,8 +39,21 @@ Global
 		{4DE23893-27E7-423F-9BB6-BA21DAC2C45E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{4DE23893-27E7-423F-9BB6-BA21DAC2C45E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{4DE23893-27E7-423F-9BB6-BA21DAC2C45E}.Release|x86.ActiveCfg = Release|Any CPU
+		{93AF58CB-B493-402C-96DF-12BCB22E9AA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93AF58CB-B493-402C-96DF-12BCB22E9AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93AF58CB-B493-402C-96DF-12BCB22E9AA5}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{93AF58CB-B493-402C-96DF-12BCB22E9AA5}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{93AF58CB-B493-402C-96DF-12BCB22E9AA5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{93AF58CB-B493-402C-96DF-12BCB22E9AA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93AF58CB-B493-402C-96DF-12BCB22E9AA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93AF58CB-B493-402C-96DF-12BCB22E9AA5}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{93AF58CB-B493-402C-96DF-12BCB22E9AA5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{93AF58CB-B493-402C-96DF-12BCB22E9AA5}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{93AF58CB-B493-402C-96DF-12BCB22E9AA5} = {4BA04760-851A-4D08-96E9-D713AE5B0C1F}
 	EndGlobalSection
 EndGlobal
